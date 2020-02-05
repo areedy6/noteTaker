@@ -1,15 +1,1 @@
-[
-  {
-    "title": "Test Title",
-    "text": "Test text"
-  },
-  {
-    "id": "e909f30b-06df-4c04-9892-c3b8145fd415",
-    "title": "notesssss",
-    "text": "sjsjsjsjs"
-  },
-  {
-    "title": "another test",
-    "text": "hshsagajslsf"
-  }
-]
+[{"title":"Test Title","text":"Test text","id":"0"},{"title":"another test","text":"hshsagajslsf","id":"1"},{"title":"hdfhfd","text":"dfgvbn","id":"2"}]

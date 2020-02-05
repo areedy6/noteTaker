@@ -1,51 +1,52 @@
-const db = require("../db/db.json");
-const fs = require("fs");
-const uuid = require("uuid/v4");
+// const db = require("../db/db.json");
+// const fs = require("fs");
+// const uuid = require("uuid/v4");
 
-module.exports = function(app) {
-  app.get("/api/notes", function(req, res) {
-    res.send(db);
-  });
+// module.exports = function(app) {
+//   app.get("/api/notes", function(req, res) {
+//     res.send(db);
+//   });
 
-  app.post("/api/notes", function(req, res) {
+//   app.post("/api/notes", function(req, res) {
 
-    let noteId = uuid();
-    let newNote = {
-      id: noteId,
-      title: req.body.title,
-      text: req.body.text
-    };
+//     let noteId = uuid();
+//     let newNote = {
+//       id: noteId,
+//       title: req.body.title,
+//       text: req.body.text
+//     };
 
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
-      if (err) throw err;
+//     fs.readFile("./db/db.json", "utf8", (err, data) => {
+//       if (err) throw err;
 
-      const allNotes = JSON.parse(data);
+//       const allNotes = JSON.parse(data);
 
-      allNotes.push(newNote);
+//       allNotes.push(newNote);
 
-      fs.writeFile("./db/db.json", JSON.stringify(allNotes, null, 2), err => {
-        if (err) throw err;
-        res.send(db);
-        console.log("Note created!")
-      });
-    });
-  });
+//       fs.writeFile("./db/db.json", JSON.stringify(allNotes, null, 2), err => {
+//         if (err) throw err;
+//         res.json(allNotes);
+//         console.log("Note created!")
 
-  app.delete("/api/notes/:id", (req, res) => {
+//       });
+//     });
+//   });
 
-    let noteId = req.params.id;
+//   app.delete("/api/notes/:id", (req, res) => {
 
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
-      if (err) throw err;
+//     let noteId = req.params.id;
 
-      const allNotes = JSON.parse(data);
-      const newAllNotes = allNotes.filter(note => note.id != noteId);
+//     fs.readFile("./db/db.json", "utf8", (err, data) => {
+//       if (err) throw err;
 
-      fs.writeFile("./db/db.json", JSON.stringify(newAllNotes, null, 2), err => {
-        if (err) throw err;
-        res.send(db);
-        console.log("Note deleted!")
-      });
-    });
-  });
-};
+//       const allNotes = JSON.parse(data);
+//       const newAllNotes = allNotes.filter(note => note.id != noteId);
+
+//       fs.writeFile("./db/db.json", JSON.stringify(newAllNotes, null, 2), err => {
+//         if (err) throw err;
+//         res.send(db);
+//         console.log("Note deleted!")
+//       });
+//     });
+//   });
+// };
